@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://badge.fury.io/py/ppo-codet5.svg)](https://badge.fury.io/py/ppo-codet5)
 
-A sophisticated machine learning framework that combines Proximal Policy Optimization (PPO) with Large Language Models (LLMs) for automated code generation and prompt optimization using the MBPP (Microsoft Python Programming Benchmark) dataset. This project implements a **Hybrid Lexical–Semantic Approach** for reinforcement learning-driven prompt optimization.
+A sophisticated machine learning framework that combines Proximal Policy Optimization (PPO) with Large Language Models (LLMs) for automated code generation and prompt optimization using the MBPP (Google Python Programming Benchmark) dataset. This project implements a **Hybrid Lexical–Semantic Approach** for reinforcement learning-driven prompt optimization.
 
 ## 🚀 Overview
 
@@ -192,12 +192,12 @@ config.environment.reward_scale = 1.0
 
 ## 📊 Dataset Information
 
-### MBPP (Microsoft Python Programming Benchmark)
+### MBPP (Google Python Programming Benchmark)
 
 - **Total Problems**: 974 programming problems
 - **Training Split**: 374 samples (`train_data = load_dataset("mbpp")["train"]`)
 - **Last prompt_id in CSV**: 974
-- **Source**: [Microsoft Research MBPP Repository](https://github.com/microsoft/MBPP)
+- **Source**: [Google Research MBPP Repository](https://github.com/google-research/google-research/tree/master/mbpp)
 - **Format**: Python programming problems with test cases
 - **Difficulty**: Beginner to intermediate level programming tasks
 
@@ -214,7 +214,7 @@ print(f"MBPP train size: {len(train_data)}")  # Output: 374
 
 ### 🏆 Performance Comparison on MBPP Benchmark
 
-Our reinforcement learning-driven approach achieves state-of-the-art performance on the Microsoft Python Programming Benchmark (MBPP), significantly outperforming existing methods including EPiC, Reflexion, and other baseline strategies.
+Our reinforcement learning-driven approach achieves state-of-the-art performance on the Google Python Programming Benchmark (MBPP), significantly outperforming existing methods including EPiC, Reflexion, and other baseline strategies.
 
 | **Strategy** | **CodeT5+ Pass@1** | **CodeT5+ SoftPass@1** | **CodeLLaMA Pass@1** | **CodeLLaMA SoftPass@1** |
 |--------------|-------------------|----------------------|---------------------|------------------------|
@@ -310,7 +310,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - **[Salesforce](https://www.salesforce.com/)** for the [CodeT5+ model](https://huggingface.co/Salesforce/codet5p-770m-py)
-- **[Microsoft Research](https://www.microsoft.com/en-us/research/)** for the [MBPP dataset](https://github.com/microsoft/MBPP)
+- **[Google Research](https://github.com/google-research/google-research/)** for the [MBPP dataset](https://github.com/google-research/google-research/tree/master/mbpp)
 - **[Meta AI](https://ai.meta.com/)** for the [LLaMA](https://github.com/facebookresearch/llama) and [CodeLlama](https://github.com/facebookresearch/codellama) models
 - **[OpenAI](https://openai.com/)** for the [PPO algorithm](https://openai.com/blog/openai-baselines-ppo/)
 - **[Hugging Face](https://huggingface.co/)** for the [Transformers library](https://github.com/huggingface/transformers)
