@@ -142,16 +142,6 @@ results = trainer.train("./outputs")
 eval_results = trainer.evaluate(num_episodes=10)
 ```
 
-### Jupyter Notebooks
-
-```python
-# Run CodeT5+ based implementation
-jupyter notebook 01_ppo_codet5.ipynb
-
-# Run CodeLlama based implementation  
-jupyter notebook 02_PPO_LlaMa.ipynb
-```
-
 ### Key Configuration
 
 The system can be configured through the `Config` class:
@@ -294,14 +284,6 @@ The system is designed to:
 - Improve code generation success rates over time
 - Handle complex programming tasks from MBPP dataset
 - Provide detailed feedback and evaluation metrics
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## 📄 License
 
