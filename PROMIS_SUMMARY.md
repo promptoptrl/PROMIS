@@ -25,12 +25,112 @@ The project combines multiple cutting-edge technologies with proper attribution:
 - **[OpenAI](https://openai.com/)** - PPO algorithm
 - **[Hugging Face](https://huggingface.co/)** - Transformers library
 - **[EPiC Framework](https://github.com/HamedTaherkhani/EPiC)** - Epic_GA component
+- **[Reflexion Framework](https://github.com/noahshinn/reflexion)** - Verbal reinforcement learning concepts
 
 ### Core Technologies
 - **PPO (Proximal Policy Optimization)**: Reinforcement learning algorithm for learning optimal prompt modification strategies
 - **Large Language Models**: Support for both CodeT5+ and CodeLlama for code generation
 - **Epic_GA ([EPiC Framework](https://github.com/HamedTaherkhani/EPiC))**: Evolutionary prompt engineering for cost-effective text mutation with semantic preservation
+- **Reflexion-Inspired Feedback**: Verbal reinforcement learning concepts for iterative prompt improvement
 - **MBPP Dataset**: Microsoft Python Programming Benchmark for training and evaluation
+
+## 🔄 Reflexion Framework Integration
+
+This project incorporates concepts from the **Reflexion: Language Agents with Verbal Reinforcement Learning** framework (NeurIPS 2023) to enhance prompt optimization through verbal feedback mechanisms.
+
+### Reflexion Framework Overview
+
+| **Aspect** | **Details** |
+|------------|-------------|
+| **Paper Title** | Reflexion: Language Agents with Verbal Reinforcement Learning |
+| **Conference** | NeurIPS 2023 |
+| **Authors** | Noah Shinn, Beck Labash, Ashwin Gopinath |
+| **ArXiv ID** | 2303.11366 |
+| **GitHub Repository** | [noahshinn/reflexion](https://github.com/noahshinn/reflexion) |
+| **Key Innovation** | Verbal reinforcement learning through linguistic feedback instead of weight updates |
+
+### Core Reflexion Concepts
+
+| **Concept** | **Description** | **Implementation in This Project** |
+|-------------|-----------------|-----------------------------------|
+| **Verbal Feedback** | Agents receive linguistic feedback on task performance | ✅ Test execution feedback stored in `feedback_history` |
+| **Episodic Memory** | Store reflections for future decision-making | ✅ Feedback persistence across episodes via `self.feedback` |
+| **Reflection Mechanism** | Agents verbally reflect on task feedback | ✅ LLaMA-based prompt rewriting using previous feedback |
+| **Iterative Improvement** | Use past reflections to improve future performance | ✅ PPO agent learns from feedback patterns over time |
+
+### Reflexion Performance Results
+
+| **Benchmark** | **Reflexion Result** | **Previous SOTA** | **Improvement** |
+|---------------|---------------------|-------------------|-----------------|
+| **HumanEval (Pass@1)** | 91% | GPT-4: 80% | +11% |
+| **Sequential Decision-Making** | Significant improvements | Baseline methods | Substantial gains |
+| **Language Reasoning** | Enhanced performance | Standard approaches | Notable improvements |
+
+### Integration in Our Project
+
+| **Component** | **Reflexion-Inspired Feature** | **Implementation Details** |
+|---------------|-------------------------------|----------------------------|
+| **Feedback Storage** | Episodic memory for reflections | `self.feedback_history.append(feedback)` |
+| **Verbal Reflection** | Linguistic analysis of failures | LLaMA-3.2-3B-Instruct prompt rewriting |
+| **Iterative Learning** | Use past feedback for improvement | PPO agent learns optimal prompt modification strategies |
+| **Multi-Modal Feedback** | Combine different feedback types | Test results + semantic feedback + evolutionary mutations |
+
+### Reflexion-Inspired Workflow
+
+```
+Initial Prompt → Code Generation → Test Evaluation → 
+Verbal Feedback → Reflection Storage → Prompt Modification → 
+Improved Generation → Enhanced Performance
+```
+
+This integration allows our reinforcement learning-driven prompt optimization system to benefit from Reflexion's proven verbal reinforcement learning capabilities, creating a hybrid approach that combines:
+- **PPO-based optimization** for strategic prompt modification
+- **Reflexion-inspired feedback** for linguistic reflection and improvement
+- **EPiC evolutionary methods** for semantic-preserving mutations
+
+## 📊 Experimental Results
+
+### Performance Comparison on MBPP Benchmark
+
+The following table shows a comprehensive comparison of Pass@1 (strict success rate) and SoftPass@1 (partial success, i.e., fraction of unit tests passed) across different prompt optimization strategies on the MBPP benchmark. Results are reported for both CodeT5+ and CodeLLaMA models. SoftPass@1 highlights incremental improvements missed by binary Pass@1, showing the benefits of lexical and semantic transformations as well as multi-step reinforcement learning with shaped rewards.
+
+| **Strategy** | **CodeT5+ Pass@1** | **CodeT5+ SoftPass@1** | **CodeLLaMA Pass@1** | **CodeLLaMA SoftPass@1** |
+|--------------|-------------------|----------------------|---------------------|------------------------|
+| **Direct Generation (Action 0)** | 12.84% | 22.80% | 41.91% | 48.82% |
+| **Genetic Mutation (Action 1)** | 20.23% | 33.40% | 43.01% | 51.70% |
+| **Semantic Rewriting (Action 2)** | 23.73% | 36.90% | 46.20% | 55.20% |
+| **Randomized Selection (10 Steps)** | 31.12% | 44.10% | 49.08% | 58.60% |
+| **EPiC** | 41.89% | 54.20% | 51.40% | 61.50% |
+| **Reflexion** | 41.63% | 55.10% | 52.70% | 63.60% |
+| **🎯 RL Agent (PPO, Ours)** | **57.58%** | **67.90%** | **64.80%** | **73.10%** |
+
+### Key Findings
+
+#### 🏆 Superior Performance
+- **Our RL Agent (PPO)** achieves the highest performance across all metrics
+- **CodeT5+**: 57.58% Pass@1 (vs 41.89% EPiC, 41.63% Reflexion)
+- **CodeLLaMA**: 64.80% Pass@1 (vs 52.70% Reflexion, 51.40% EPiC)
+
+#### 📈 Significant Improvements
+- **CodeT5+ Pass@1**: +15.69% improvement over EPiC, +15.95% over Reflexion
+- **CodeT5+ SoftPass@1**: +13.70% improvement over EPiC, +12.80% over Reflexion
+- **CodeLLaMA Pass@1**: +12.10% improvement over Reflexion, +13.40% over EPiC
+- **CodeLLaMA SoftPass@1**: +9.50% improvement over Reflexion, +11.60% over EPiC
+
+#### 🔍 Strategy Analysis
+1. **Direct Generation**: Baseline performance showing room for improvement
+2. **Genetic Mutation**: Modest improvements through evolutionary operations
+3. **Semantic Rewriting**: Better results through LLM-based prompt modification
+4. **Randomized Selection**: Multi-step approach shows benefits
+5. **EPiC**: Strong evolutionary prompt engineering baseline
+6. **Reflexion**: Competitive verbal reinforcement learning approach
+7. **Our RL Agent**: Best performance through learned prompt optimization strategies
+
+#### 💡 SoftPass@1 Insights
+- **Incremental Progress**: SoftPass@1 reveals improvements missed by binary Pass@1
+- **Lexical Benefits**: Shows value of semantic transformations
+- **Multi-step Learning**: Demonstrates benefits of reinforcement learning with shaped rewards
+- **Consistent Gains**: Our approach shows consistent improvements in both metrics
 
 ### Dual Implementation Approach
 
@@ -109,22 +209,6 @@ Reinforcement-Learning-Driven-Prompt-Optimization/
 - **Code-Specific Evaluation**: MBPP dataset integration
 - **Multi-Agent Architecture**: PPO agent with specialized environments
 - **Comprehensive Metrics**: Success rates, execution time, error analysis
-
-## 📊 Performance Characteristics
-
-### CodeT5+ Implementation
-- **Model Size**: 770M parameters
-- **Memory Usage**: 4-6GB GPU memory
-- **Training Time**: 30-60 minutes
-- **Success Rate**: 60-80% on MBPP
-- **Best For**: Quick prototyping, simple tasks
-
-### CodeLlama Implementation
-- **Model Size**: 7B parameters
-- **Memory Usage**: 12-16GB GPU memory
-- **Training Time**: 60-120 minutes
-- **Success Rate**: 70-90% on MBPP
-- **Best For**: Complex tasks, production use
 
 ## 🤝 Collaboration Ready
 
