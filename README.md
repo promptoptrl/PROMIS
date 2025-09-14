@@ -301,10 +301,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **[noahshinn/reflexion](https://github.com/noahshinn/reflexion)** for the Reflexion framework and verbal reinforcement learning concepts
 - **Reflexion Framework** for language agents with verbal reinforcement learning (NeurIPS 2023)
 
-## 📞 Contact
-
-For questions or support, please open an issue in the repository or contact the maintainers.
-
 ---
 
 ## ⚠️ Hardware Requirements
