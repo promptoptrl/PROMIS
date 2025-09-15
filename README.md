@@ -38,7 +38,7 @@ This project implements a reinforcement learning system that learns to generate 
 6. **PPO Training**: Update policy based on rewards and feedback
 7. **Prompt Optimization**: Use LLaMA to rewrite prompts for better results
 
-## 📋 Requirements
+##  Requirements
 
 ### System Requirements
 - **Python**: 3.8+
@@ -62,7 +62,7 @@ sentence-transformers>=2.2.0
 gensim>=4.2.0
 ```
 
-## 🛠️ Installation
+##  Installation
 
 ### Quick Install
 
@@ -199,9 +199,9 @@ train_data = load_dataset("mbpp")["train"]  # 374 samples
 print(f"MBPP train size: {len(train_data)}")  # Output: 374
 ```
 
-## 📊 Results and Evaluation
+##  Results and Evaluation
 
-### 🏆 Performance Comparison on MBPP Benchmark
+###  Performance Comparison on MBPP Benchmark
 
 Our reinforcement learning-driven approach achieves state-of-the-art performance on the Google Python Programming Benchmark (MBPP), significantly outperforming existing methods including EPiC, Reflexion, and other baseline strategies.
 
@@ -213,13 +213,13 @@ Our reinforcement learning-driven approach achieves state-of-the-art performance
 | **Randomized Selection (10 Steps)** | 31.12% | 44.10% | 49.08% | 58.60% |
 | **EPiC** | 41.89% | 54.20% | 51.40% | 61.50% |
 | **Reflexion** | 41.63% | 55.10% | 52.70% | 63.60% |
-| **🎯 RL Agent (PPO, Ours)** | **57.58%** | **67.90%** | **64.80%** | **73.10%** |
+| **RL Agent (PPO, Ours)** | **57.58%** | **67.90%** | **64.80%** | **73.10%** |
 
 
 
 
 
-## 🔬 Technical Details
+##  Technical Details
 
 
 
@@ -253,7 +253,7 @@ The system incorporates concepts from the **Reflexion: Language Agents with Verb
 - **Iterative Improvement**: Use past reflections to improve future performance
 - **Multi-Modal Feedback**: Combine test results, semantic feedback, and evolutionary mutations
 
-## 📈 Performance
+##  Performance
 
 The system is designed to:
 - Learn optimal prompt modification strategies
@@ -261,11 +261,11 @@ The system is designed to:
 - Handle complex programming tasks from MBPP dataset
 - Provide detailed feedback and evaluation metrics
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **[Salesforce](https://www.salesforce.com/)** for the [CodeT5+ model](https://huggingface.co/Salesforce/codet5p-770m-py)
 - **[Google Research](https://github.com/google-research/google-research/)** for the [MBPP dataset](https://github.com/google-research/google-research/tree/master/mbpp)
@@ -279,7 +279,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## ⚠️ Hardware Requirements
+##  Hardware Requirements
 
 **Important**: This project requires significant computational resources:
 
