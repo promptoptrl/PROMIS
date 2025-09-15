@@ -4,9 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://badge.fury.io/py/ppo-codet5.svg)](https://badge.fury.io/py/ppo-codet5)
 
-A sophisticated machine learning framework that combines Proximal Policy Optimization (PPO) with Large Language Models (LLMs) for automated code generation and prompt optimization using the MBPP (Google Python Programming Benchmark) dataset. This project implements a **Hybrid Lexical–Semantic Approach** for reinforcement learning-driven prompt optimization.
 
-## 🚀 Overview
+##  Overview
 
 This project implements a reinforcement learning system that learns to generate better prompts for code generation tasks. The system supports multiple LLM backends and uses:
 
@@ -18,7 +17,7 @@ This project implements a reinforcement learning system that learns to generate 
 - **Epic_GA** ([EPiC Framework](https://github.com/HamedTaherkhani/EPiC)) for evolutionary prompt engineering and text mutation with semantic preservation
 - **Reflexion-Inspired Feedback** ([Reflexion Framework](https://github.com/noahshinn/reflexion)) for verbal reinforcement learning and iterative prompt improvement
 
-## 🏗️ Architecture
+## Architecture
 
 ### Core Components
 
@@ -27,7 +26,7 @@ This project implements a reinforcement learning system that learns to generate 
 3. **PromptRewriter**: Uses LLaMA to rewrite prompts based on feedback
 4. **Epic_GA**: Evolutionary prompt engineering algorithm (based on [EPiC Framework](https://github.com/HamedTaherkhani/EPiC)) for text mutation with semantic preservation
 5. **Reflexion Integration**: Verbal reinforcement learning for feedback storage and prompt improvement
-6. **CodeT5+ Integration**: Handles code generation and evaluation
+6. **Code Generation Models**: Handles code generation and evaluation
 
 ### Workflow
 
@@ -109,7 +108,7 @@ pip install ppo-codet5
    mkdir -p cache/hf cache/gensim cache/nltk
    ```
 
-## 🚀 Usage
+## Usage
 
 ### Command Line Interface
 
@@ -180,7 +179,7 @@ config.environment.reward_scale = 1.0
 - **Gamma**: Discount factor (default: 0.99)
 - **Clip Epsilon**: PPO clipping parameter (default: 0.2)
 
-## 📊 Dataset Information
+##  Dataset Information
 
 ### MBPP (Google Python Programming Benchmark)
 
@@ -216,36 +215,13 @@ Our reinforcement learning-driven approach achieves state-of-the-art performance
 | **Reflexion** | 41.63% | 55.10% | 52.70% | 63.60% |
 | **🎯 RL Agent (PPO, Ours)** | **57.58%** | **67.90%** | **64.80%** | **73.10%** |
 
-### Key Achievements
 
-- **🏆 Superior Performance**: Our RL Agent achieves the highest performance across all metrics
-- **📈 Significant Improvements**: 
-  - **CodeT5+**: +15.69% improvement over EPiC, +15.95% over Reflexion
-  - **CodeLLaMA**: +12.10% improvement over Reflexion, +13.40% over EPiC
-- **💡 SoftPass@1 Insights**: Reveals incremental improvements missed by binary Pass@1, showing the benefits of lexical and semantic transformations
 
-### System Outputs
 
-The system outputs detailed results including:
-
-- **Training Progress**: Episode rewards and success rates
-- **Test Results**: CSV files with detailed test case results
-- **Model Checkpoints**: Saved PPO agent weights
-- **Performance Metrics**: Average rewards and success rates
-
-### Output Files
-
-- `01_Test/prompt_ENG_train_MBPP.csv`: Training results
-- `ppo_agent_mbpp.pt`: Trained PPO model weights
-- Console logs with detailed progress information
 
 ## 🔬 Technical Details
 
-### PPO Implementation
 
-The PPO agent uses a two-network architecture:
-- **Actor Network**: Policy network for action selection
-- **Critic Network**: Value network for state evaluation
 
 ### Code Generation Pipeline
 
